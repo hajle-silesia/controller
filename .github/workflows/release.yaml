@@ -1,0 +1,14 @@
+name: Release
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    uses: hajle-silesia/.github/.github/workflows/shared-release.yaml@v2.6.2
+    secrets:
+      token: ${{ secrets.PUSH_TOKEN }}

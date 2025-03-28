@@ -1,0 +1,28 @@
+name: CI
+
+on:  # yamllint disable-line rule:truthy
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests-and-static-analysis:
+    name: Tests and static analysis
+    uses: hajle-silesia/.github/.github/workflows/shared-tests-and-static-analysis.yaml@v2.6.2
+    with:
+      python-dependencies: true
+
+  image-build:
+    needs:
+      - tests-and-static-analysis
+    name: Image build
+    uses: hajle-silesia/.github/.github/workflows/shared-image-build.yaml@v2.6.2
+    with:
+      docker-hub-username: ${{ vars.DOCKER_HUB_USERNAME }}
+      docker-hub-namespace: ${{ vars.DOCKER_HUB_NAMESPACE }}
+    secrets:
+      docker-hub-token: ${{ secrets.DOCKER_HUB_TOKEN }}

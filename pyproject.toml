@@ -1,0 +1,30 @@
+[tool.ruff]
+fix = true
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "ALL", # Include all the rules, including new ones
+]
+ignore = [
+    # Modules
+    "ANN", # flake8-annotations
+
+    # Specific rules
+    # Missing docs
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D107",
+    "RET503", # Missing explicit `return` at the end of function able to return non-`None` value
+]
+
+[tool.ruff.lint.per-file-ignores]
+    "tests/**.py" = ["S101"]
+
+[tool.bandit]
+exclude_dirs = [
+    "tests",
+]

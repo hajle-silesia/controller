@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "github>hajle-silesia/.github//.github/renovate.json"
+  ]
+}
