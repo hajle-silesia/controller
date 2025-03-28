@@ -29,6 +29,6 @@ ARG WORKDIR="/project"
 WORKDIR "${WORKDIR}"
 ENV PATH="${WORKDIR}/.venv/bin:${PATH}"
 COPY --from=build-venv "${WORKDIR}" "${WORKDIR}"
-ARG APP_DIR="src/package"
+ARG APP_DIR="src/controller"
 COPY "${APP_DIR}" "${APP_DIR}"
-ENTRYPOINT ["python3", "src/package/main.py"]
+ENTRYPOINT ["python3", "src/controller/main.py"]

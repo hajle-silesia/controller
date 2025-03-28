@@ -1,6 +1,9 @@
 name: CI
 
 on:  # yamllint disable-line rule:truthy
+  push:
+    tags:
+      - "v*.*.*"
   pull_request:
     branches:
       - master
