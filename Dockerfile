@@ -24,7 +24,7 @@ ARG REQUIREMENTS_FILE="requirements.txt"
 COPY "${REQUIREMENTS_FILE}" .
 RUN if [ -f "${REQUIREMENTS_FILE}" ]; then python3 -m pip install -r "${REQUIREMENTS_FILE}"; fi
 
-FROM gcr.io/distroless/python3-debian12@sha256:2ee12c9ec854c64622f469f4c5974c419767334f5965706cedbe2e2353a3a425 AS runtime
+FROM gcr.io/distroless/python3-debian12@sha256:a0ded8676ed10e194cce1b8fdf9171672cda95ad1cabba4ece7b01f4db2e7471 AS runtime
 ARG WORKDIR="/project"
 WORKDIR "${WORKDIR}"
 ENV PATH="${WORKDIR}/.venv/bin:${PATH}"
