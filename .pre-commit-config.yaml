@@ -3,7 +3,7 @@ default_install_hook_types:
   - pre-push
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.9
+    rev: v0.14.10
     hooks:
       # Keep the order: linter, formatter, as linter fixes may require code reformatting.
       # Source: https://docs.astral.sh/ruff/integrations/#pre-commit
