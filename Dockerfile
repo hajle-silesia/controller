@@ -1,7 +1,7 @@
 # Use build image that allows to match Python version between build stage and runtime stage.
 # "Distroless" images usually don't support the latest Python version. Instead, they follow the version allowed by distribution they use.
 # Therefore, for consistency, it's reasonable to use the same distribution in the build stage.
-FROM debian:12.12 AS build
+FROM debian:12.13 AS build
 ARG WORKDIR="/project"
 WORKDIR "${WORKDIR}"
 ARG VENV_DIR=".venv"
